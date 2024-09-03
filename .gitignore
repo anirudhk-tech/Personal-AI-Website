@@ -1,3 +1,4 @@
 .env
 server/data_plain.txt
 server/venv
+server/__pycache__
