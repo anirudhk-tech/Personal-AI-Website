@@ -1,7 +1,10 @@
 import os
+from dotenv import load_dotenv, dotenv_values
 from huggingface_hub import hf_hub_download
 
-KEY = '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'
+load_dotenv()
+
+KEY = os.getenv("AI_KEY")
 model_id = 'google-t5/t5-base'
 filenames = [
     '.gitattributes', 
