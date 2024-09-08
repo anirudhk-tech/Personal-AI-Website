@@ -6,6 +6,8 @@ Author: Anirudh Kuppili
 
 const flask_url = 'http://127.0.0.1:5000';
 const insert_url = flask_url+'/insert';
+const delete_url = flask_url+'/delete';
+const fetch_url = flask_url+'/fetch';
 
 /*
 Function that sends a POST request to the insert endpoint in flask server. Adding message to database.
@@ -22,6 +24,47 @@ export const insert_chat = (data) => {
     })
     .then(res => res.json())
     .then(data => console.log("Success: ", data))
-    .catch((error) => console.error("Error: ", error))
-    
+    .catch(error => console.error("Error: ", error))  
+};
+
+/*
+Function that sends a request to Flask to delete the conversation on the database when user exits the website.
+Input: data (The object containing the UUID of the conversation)
+Output: None
+*/
+export const delete_chat = (data) => {
+    fetch(delete_url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => console.log("Success: ", data))
+    .catch(error => console.error("Error: ", error))
+};
+
+/*
+Function that sends a request to Flask to fetch a conversation
+Input: data (The object containing the UUID of the specific conversation)
+Output: convoArray (Array of message objects that make up the chat history)
+*/
+export const fetch_chat = async (data) => {
+    const response = await fetch(fetch_url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        return data;
+    })
+    .catch(error => console.error("Error: ", error))
+
+    return response
 };

@@ -5,13 +5,15 @@ Author: Anirudh Kuppili
 */
 
 import { Box, TextField } from "@mui/material";
-import { useEffect, useRef, useContext } from "react";
+import { useEffect, useRef, useContext, useState } from "react";
 import { IdContext } from "context/idContext";
 import { insert_chat } from "api/api";
+import { InputContext } from "context/inputContext";
 
 
 export const InputComponent = () => {
     const uuid = useContext(IdContext);
+    const { msgSent, setMsgSent } = useContext(InputContext);
     const inputRef = useRef(null);
     const query = useRef("empty");
 
@@ -47,7 +49,10 @@ export const InputComponent = () => {
             chat_type: 'user',
             content: query.current,
         };
+
         insert_chat(message);
+        setMsgSent(prev => !prev); // Refreshing chat once new msg is sent
+        query.current = ''; // Resetting query once refreshed
     };
 
 
@@ -70,6 +75,7 @@ export const InputComponent = () => {
         >
             <TextField 
             ref={inputRef}
+            key={msgSent}
             onChange={handleChange}
             variant='outlined'
             label="Type your question..."

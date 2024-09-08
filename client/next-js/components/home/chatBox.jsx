@@ -5,7 +5,7 @@ export const ChatBox = ({ msg }) => {
     const card_content = (
         <CardContent>
             <Typography sx={{
-                color: msg.type === 'bot' ? 'primary.main' : 'primary.contrastText'
+                color: msg.chat_type === 'bot' ? 'primary.main' : 'primary.contrastText'
             }}>{msg.content}</Typography>
         </CardContent>
     );
@@ -15,11 +15,11 @@ export const ChatBox = ({ msg }) => {
         variant='outlined'
         sx={{
             borderColor: 'primary.main',
-            bgcolor: msg.type === 'bot' ? 'background' : 'primary.main',
+            bgcolor: msg.chat_type === 'bot' ? 'background' : 'primary.main',
             borderWidth: 2,
             width: '40%',
             marginBottom: '2%', // Adds space between chats
-            alignSelf: msg.type === 'bot' ? 'flex-start' : 'flex-end',
+            alignSelf: msg.chat_type === 'bot' ? 'flex-start' : 'flex-end',
         }}    
         >{card_content}</Card>
     );

@@ -9,7 +9,7 @@ import { MenuOpen } from "@mui/icons-material";
 import { useState } from "react";
 
 export const DrawerComponent = () => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const toggle = () => {
         setOpen(prev => !prev);

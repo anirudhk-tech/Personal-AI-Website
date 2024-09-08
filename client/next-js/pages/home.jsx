@@ -9,12 +9,12 @@ import { DrawerComponent } from "../components/common/drawer";
 import { InputComponent } from "../components/home/input";
 import { HeaderComponent } from "../components/common/header";
 import { Chat } from "components/home/chat";
-import { insert_chat } from "../api/api";
-import { useContext } from "react";
-import { IdContext } from "context/idContext";
-
+import { useState } from "react";
+import { InputContext } from "context/inputContext";
 
 export default function Home () {
+    const [msgSent, setMsgSent] = useState(false); // State that controls chat refresh on new msg sends
+
     return ( 
         <Box
         sx={{
@@ -36,8 +36,10 @@ export default function Home () {
                 alignItems: 'center'
             }}
             >
-                <Chat/>
-                <InputComponent/>
+                <InputContext.Provider value={{msgSent: msgSent, setMsgSent: setMsgSent}}>
+                    <Chat/>
+                    <InputComponent/>
+                </InputContext.Provider>
             </Box>
         </Box>
     );
