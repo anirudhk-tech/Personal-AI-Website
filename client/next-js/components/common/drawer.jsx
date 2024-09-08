@@ -1,4 +1,11 @@
-import { Drawer, Box, Button, Icon } from "@mui/material";
+/*
+Drawer component that's available throughout the website
+Date Last Edited: 7 September 2024
+Author: Anirudh Kuppili
+*/
+
+import { Drawer, Box, IconButton } from "@mui/material";
+import { MenuOpen } from "@mui/icons-material";
 import { useState } from "react";
 
 export const DrawerComponent = () => {
@@ -25,26 +32,23 @@ export const DrawerComponent = () => {
                 bgcolor: 'primary.main',
                 width: '20%'
             }}
+            ModalProps={{ // Makes default dimming effect invisible when opening drawer
+                slotProps: {
+                    backdrop: {
+                        invisible: true
+                    }
+                }
+            }}
             >
 
             </Drawer>
             {
                 !open ?
-                <Button 
-                variant="contained"
-                sx={{
-                    borderTopLeftRadius: 100,
-                    borderBottomLeftRadius: 100,
-                    bgcolor: 'primary.main',
-                    transform: 'rotate(180deg)',
-                    height: '15%',
-                }}
+                <IconButton 
                 onClick={toggle}
                 >
-                    <Icon>
-                        
-                    </Icon>
-                </Button> : null
+                    <MenuOpen sx={{ color: 'primary.main' }}/>
+                </IconButton> : null
             }
         </Box>
     );

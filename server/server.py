@@ -1,11 +1,23 @@
-from gpt_config import download_model
-from gpt import answer
+'''
+Central server file that runs the Flask server
+Date Last Edited: 7 September 2024
+Author: Anirudh Kuppili
+'''
 
-download_model()
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from database.database import insert_convo 
 
-query = ''
+server = Flask(__name__)
+CORS(server)
+# Endpoint to insert message into database
+@server.route('/insert', methods=['POST'])
+def insert():
+    data = request.json
+    print(data)
+    response = insert_convo(data)
 
-while query != 'exit':
-    query = input("\n\nAsk me something\n")
-    response = answer(query)
-    print('\n\n\n'+response+'\n\n\n')
+    return jsonify(response)
+
+if __name__ == '__main__':
+    server.run(debug=True)

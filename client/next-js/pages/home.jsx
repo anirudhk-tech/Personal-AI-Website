@@ -1,7 +1,17 @@
+/*
+Home page, which is also the page where user can chat with the AI
+Date Last Edited: 7 September 2024
+Author: Anirudh Kuppili
+*/
+
 import { Box } from "@mui/material";
 import { DrawerComponent } from "../components/common/drawer";
-import { InputComponent } from "../components/common/input";
-
+import { InputComponent } from "../components/home/input";
+import { HeaderComponent } from "../components/common/header";
+import { Chat } from "components/home/chat";
+import { insert_chat } from "../api/api";
+import { useContext } from "react";
+import { IdContext } from "context/idContext";
 
 
 export default function Home () {
@@ -16,16 +26,17 @@ export default function Home () {
             flexDirection: 'row'
         }}
         >
+            <HeaderComponent/>
             <DrawerComponent/>
             <Box
             sx={{
-                flexGrow: 11,
                 display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-end',
-                padding: 5
+                width: '90%',
+                flexDirection: 'column',
+                alignItems: 'center'
             }}
             >
+                <Chat/>
                 <InputComponent/>
             </Box>
         </Box>
