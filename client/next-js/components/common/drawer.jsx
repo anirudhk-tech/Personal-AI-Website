@@ -7,6 +7,7 @@ Author: Anirudh Kuppili
 import { Drawer, Box, IconButton } from "@mui/material";
 import { MenuOpen } from "@mui/icons-material";
 import { useState } from "react";
+import { NavCard } from "components/drawer/navCard";
 
 export const DrawerComponent = () => {
     const [open, setOpen] = useState(false);
@@ -29,10 +30,9 @@ export const DrawerComponent = () => {
             open={open}
             onClose={toggle}
             sx={{
-                bgcolor: 'primary.main',
-                width: '20%'
+                width: '10%'
             }}
-            ModalProps={{ // Makes default dimming effect invisible when opening drawer
+            ModalProps={{ // Turns off default dimming effect when opening drawer
                 slotProps: {
                     backdrop: {
                         invisible: true
@@ -40,6 +40,22 @@ export const DrawerComponent = () => {
                 }
             }}
             >
+                <Box
+                sx={{
+                    width: '200px',
+                    height: '100%',
+                    bgcolor: 'primary.main',
+                    padding: '2%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1%',
+                }}
+                >
+                    <NavCard title={'Home'} link={'/'} blurb={'Want to talk to Cortex?'}/>
+                    <NavCard title={'About'} link={'/about'} blurb={'Want a basic overview?'}/>
+                    <NavCard title={'Projects + Skills'} link={'/projects+skills'} blurb={'Want a deep dive on work?'}/>
+                    <NavCard title={'Contact'} link='/contact' blurb={'Want to get in touch?'}/>
+                </Box>
 
             </Drawer>
             {

@@ -11,7 +11,7 @@ export const Chat = () => {
     const initDialog = {
         chat_type: 'bot',
         convo_id: uuid,
-        content: "Hey! I'm Cortex, a personal AI trained by Anirudh. Let me know what you'd like to know about my creator."
+        content: "Hey! I'm Cortex. Anything specific you'd like to know about Anirudh?"
     };
     const [chatMsgs, setChatMsgs] = useState([]);
 
@@ -34,8 +34,8 @@ export const Chat = () => {
             height: '90%',
             width: '78%',
             paddingTop: '10%', // Making sure chats aren't hidden behind header
-            display: 'flex',
-            flexDirection: 'column',
+            overflowY: 'scroll',
+            scrollbarWidth: 'none',
         }}
         >
             { chatMsgs.map((msg) => (

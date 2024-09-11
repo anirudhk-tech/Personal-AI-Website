@@ -1,6 +1,6 @@
 '''
 File that provides functions to insert, delete, and fetch from the database
-Date Last Edited: 7 September 2024
+Date Last Edited: 8 September 2024
 Author: Anirudh Kuppili
 '''
 
