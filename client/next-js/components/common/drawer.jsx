@@ -51,9 +51,9 @@ export const DrawerComponent = () => {
                     gap: '1%',
                 }}
                 >
-                    <NavCard title={'Home'} link={'/'} blurb={'Want to talk to Cortex?'}/>
+                    <NavCard title={'Cortex'} link={'/'} blurb={'Want to talk to an AI?'}/>
                     <NavCard title={'About'} link={'/about'} blurb={'Want a basic overview?'}/>
-                    <NavCard title={'Projects + Skills'} link={'/projects+skills'} blurb={'Want a deep dive on work?'}/>
+                    <NavCard title={'Projects'} link={'/projects'} blurb={'Want to see my work?'}/>
                     <NavCard title={'Contact'} link='/contact' blurb={'Want to get in touch?'}/>
                 </Box>
 
