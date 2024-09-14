@@ -32,7 +32,6 @@ def insert_convo (msg):
             .execute()
         )
 
-        print("Message added! Response: ", response)
     except Exception as e:
         raise RuntimeError("Failed to insert message into database. Error: ", e)
 
@@ -50,7 +49,6 @@ def delete_convo (convo_id):
             .execute()
         )
 
-        print("Conversation deleted! Response: ", response)
     except Exception as e:
         raise RuntimeError("Failed to delete conversation. Error: ", e)
 
@@ -69,7 +67,15 @@ def get_convo (convo_id):
             .execute()
         )
 
-        print("Conversation fetched! Conversation: ", response)
         return response
     except Exception as e:
         raise RuntimeError("Failed to fetch conversation. Error: ", e)
+
+'''
+Helper function to sort chats based on time oldest to recent
+Input: chats (Known chat to sort)
+Output: sorted_chats (Array of sorted known chats based on time sent)
+'''
+
+def sort_chats (chat):
+    return chat['created_at']

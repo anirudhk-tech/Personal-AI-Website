@@ -21,7 +21,7 @@ export const HeaderComponent = () => {
             <Typography
             sx={{
                 fontFamily: '"Great Vibes", cursive',
-                fontSize: 30,
+                fontSize: '3vw',
                 color: 'primary.main'
             }}>Anirudh Kuppili</Typography>
         </AppBar>

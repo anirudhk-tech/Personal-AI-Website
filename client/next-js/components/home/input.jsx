@@ -7,7 +7,7 @@ Author: Anirudh Kuppili
 import { Box, TextField } from "@mui/material";
 import { useEffect, useRef, useContext, useState } from "react";
 import { IdContext } from "context/idContext";
-import { insert_chat } from "api/api";
+import { ask_bot, insert_chat } from "api/api";
 import { InputContext } from "context/inputContext";
 
 
@@ -67,7 +67,7 @@ export const InputComponent = () => {
         <Box
         sx={{
             bgcolor: 'background',
-            width: '80%',
+            width: '95%',
             height: '10%',
             alignItems: 'center',
             display: 'flex',

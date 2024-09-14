@@ -1,5 +1,6 @@
 /*
 Drawer component that's available throughout the website
+Props: scrollTop (Optionally provided if page is scrollable so drawer icon moves with the page viewport)
 Date Last Edited: 7 September 2024
 Author: Anirudh Kuppili
 */
@@ -9,7 +10,7 @@ import { MenuOpen } from "@mui/icons-material";
 import { useState } from "react";
 import { NavCard } from "components/drawer/navCard";
 
-export const DrawerComponent = () => {
+export const DrawerComponent = ({ scrollTop }) => {
     const [open, setOpen] = useState(false);
 
     const toggle = () => {
@@ -30,7 +31,7 @@ export const DrawerComponent = () => {
             open={open}
             onClose={toggle}
             sx={{
-                width: '10%'
+                width: '10%',
             }}
             ModalProps={{ // Turns off default dimming effect when opening drawer
                 slotProps: {
@@ -51,10 +52,10 @@ export const DrawerComponent = () => {
                     gap: '1%',
                 }}
                 >
-                    <NavCard title={'Cortex'} link={'/'} blurb={'Want to talk to an AI?'}/>
-                    <NavCard title={'About'} link={'/about'} blurb={'Want a basic overview?'}/>
-                    <NavCard title={'Projects'} link={'/projects'} blurb={'Want to see my work?'}/>
-                    <NavCard title={'Contact'} link='/contact' blurb={'Want to get in touch?'}/>
+                    <NavCard title={'Cortex'} link={'/cortex'} blurb={'Have a specific question?'}/>
+                    <NavCard title={'Home'} link={'/'} blurb={'Want a basic overview?'}/>
+                    <NavCard title={'Timeline'} link={'/timeline'} blurb={'Looking for experience?'}/>
+                    <NavCard title={'Contact'} link='/contact' blurb={'How to connect?'}/>
                 </Box>
 
             </Drawer>
@@ -63,7 +64,11 @@ export const DrawerComponent = () => {
                 <IconButton 
                 onClick={toggle}
                 >
-                    <MenuOpen sx={{ color: 'primary.main' }}/>
+                    <MenuOpen sx={{ 
+                        color: 'primary.main', 
+                        position: 'fixed', 
+                        marginLeft: '3vh', 
+                    }}/>
                 </IconButton> : null
             }
         </Box>

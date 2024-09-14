@@ -6,7 +6,7 @@ Author: Anirudh Kuppili
 
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from dataset import *
+from ai_bot.dataset import *
 
 transformer_modelPath = "sentence-transformers/all-MiniLM-l6-v2" # Defining information about transformer model for embedding
 model_kwargs={'device': 'cpu'}
@@ -23,4 +23,6 @@ finder = db.as_retriever(search_kwargs={"k": 5}) # Initializing retriever
 
 def search_faiss (query): # Search function that fetches relevant context
     searchResult = finder.get_relevant_documents(query)
-    return searchResult[0].metadata["response"]
+
+    return [searchResult[x].metadata["response"] for x in range(5)] # Returning top 5 results
+  

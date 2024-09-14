@@ -8,6 +8,7 @@ const flask_url = 'http://127.0.0.1:5000';
 const insert_url = flask_url+'/insert';
 const delete_url = flask_url+'/delete';
 const fetch_url = flask_url+'/fetch';
+const ask_url = flask_url+'/ask';
 
 /*
 Function that sends a POST request to the insert endpoint in flask server. Adding message to database.
@@ -25,6 +26,23 @@ export const insert_chat = (data) => {
     .then(res => res.json())
     .then(data => console.log("Success: ", data))
     .catch(error => console.error("Error: ", error))  
+
+    const { content, uuid } = data;
+    const ask_data = {
+        'query': content,
+        'uuid': uuid,
+    };
+
+    fetch(ask_url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(ask_data)
+    })
+    .then(res => res.json())
+    .then(data => console.log("Success: ", data))
+    .catch(error => console.error("Error: ", error));
 };
 
 /*
@@ -67,4 +85,21 @@ export const fetch_chat = async (data) => {
     .catch(error => console.error("Error: ", error))
 
     return response
+};
+
+/*
+Function that sends a request to the server which in turn returns an AI response
+Input: data (The object containing the UUID and query)
+Output: None
+*/
+export const ask_bot = (data) => {
+    fetch(ask_url, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data => console.log("Success: ", data))
+    .catch(error => console.error("Error: ", error));
 };
