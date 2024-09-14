@@ -7,7 +7,7 @@ Author: Anirudh Kuppili
 */
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./theme.js";
-import AboutPage from "pages/about_page.js";
+import AboutPage from "pages/about_page.jsx";
 
 
 export default function App () {
