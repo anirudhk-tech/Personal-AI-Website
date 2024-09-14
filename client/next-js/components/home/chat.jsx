@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
-import { ChatBox } from "./chatBox";
+import { ChatBox } from "./chatBox.jsx";
 import { useContext, useEffect, useRef, useState } from "react";
-import { fetch_chat } from "api/api";
-import { InputContext } from "context/inputContext";
-import { IdContext } from "context/idContext";
+import { fetch_chat } from "api/api.js";
+import { InputContext } from "context/inputContext.jsx";
+import { IdContext } from "context/idContext.jsx";
 
 export const Chat = () => {
     const { msgSent } = useContext(InputContext);

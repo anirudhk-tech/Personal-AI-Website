@@ -6,8 +6,8 @@ Date Last Edited: 7 September 2024
 Author: Anirudh Kuppili
 */
 import { ThemeProvider } from "@mui/material";
-import { theme } from "./theme";
-import AboutPage from "pages/about_page";
+import { theme } from "./theme.js";
+import AboutPage from "pages/about_page.js";
 
 
 export default function App () {

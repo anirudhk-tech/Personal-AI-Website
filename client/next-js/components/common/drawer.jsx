@@ -8,7 +8,7 @@ Author: Anirudh Kuppili
 import { Drawer, Box, IconButton } from "@mui/material";
 import { MenuOpen } from "@mui/icons-material";
 import { useState } from "react";
-import { NavCard } from "components/drawer/navCard";
+import { NavCard } from "components/drawer/navCard.jsx";
 
 export const DrawerComponent = ({ scrollTop }) => {
     const [open, setOpen] = useState(false);

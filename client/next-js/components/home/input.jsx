@@ -5,10 +5,10 @@ Author: Anirudh Kuppili
 */
 
 import { Box, TextField } from "@mui/material";
-import { useEffect, useRef, useContext, useState } from "react";
-import { IdContext } from "context/idContext";
-import { ask_bot, insert_chat } from "api/api";
-import { InputContext } from "context/inputContext";
+import { useEffect, useRef, useContext } from "react";
+import { IdContext } from "context/idContext.jsx";
+import { insert_chat } from "api/api.js";
+import { InputContext } from "context/inputContext.jsx";
 
 
 export const InputComponent = () => {

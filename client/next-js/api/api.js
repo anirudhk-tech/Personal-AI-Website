@@ -86,20 +86,3 @@ export const fetch_chat = async (data) => {
 
     return response
 };
-
-/*
-Function that sends a request to the server which in turn returns an AI response
-Input: data (The object containing the UUID and query)
-Output: None
-*/
-export const ask_bot = (data) => {
-    fetch(ask_url, {
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(data => console.log("Success: ", data))
-    .catch(error => console.error("Error: ", error));
-};
