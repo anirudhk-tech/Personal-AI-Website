@@ -39,7 +39,7 @@ def ask_ai (query):
   context = search_faiss(query) # Find context from dataset based on query
   common_punc = ['.', '?', '!']
 
-  response = chat_session.send_message(f"Answer the following question thoroughly: {query} using this context: {context}. Respond as if you're talking from your own knowledge instead of a provided context.")
+  response = chat_session.send_message(f"Answer the following question thoroughly: {query} using this context: {context}. Respond as if you're talking from your own knowledge instead of a provided context. In your response, don't mention that you derived the answer from a context. And don't bold anything.")
 
 
   if response.text[-1] not in common_punc:
@@ -51,6 +51,8 @@ def ask_ai (query):
     response = ".".join(response_list) + "."
   else:
     response = response.text
+  
+  response = response.replace('*', '')
 
 
   return response

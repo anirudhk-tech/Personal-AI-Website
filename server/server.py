@@ -10,7 +10,7 @@ from database.database import insert_convo, delete_convo, get_convo, sort_chats
 from ai_bot.gemini import ask_ai
 
 server = Flask(__name__)
-cors = CORS(server, resources={r"/*": {"origins": "*"}})
+CORS(server, resources={r"/*": {"origins": "*"}})
 # Endpoint to insert message into database
 @server.route('/insert', methods=['POST'])
 def insert():
@@ -27,7 +27,6 @@ def delete():
     return jsonify(response)
 
 @server.route('/fetch', methods=['POST'])
-@cross_origin()
 def fetch():    
     data = request.json
     response = get_convo(data['uuid'])
@@ -35,7 +34,6 @@ def fetch():
     return { 'messages': sorted(response.data, key=sort_chats) } # Sorting response so least recent comes first
 
 @server.route('/ask', methods=['POST'])
-@cross_origin()
 def ask ():
     data = request.json
     response = ask_ai(data['query'])
@@ -50,4 +48,4 @@ def ask ():
     return jsonify(response)
 
 if __name__ == '__main__':
-    server.run(debug=True)
+    server.run(host='0.0.0.0', port=5000)

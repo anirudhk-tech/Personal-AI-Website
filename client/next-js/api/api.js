@@ -4,7 +4,7 @@ Date Last Edited: 7 September 2024
 Author: Anirudh Kuppili
 */
 
-const flask_url = 'http://127.0.0.1:5000';
+const flask_url = 'http://192.168.0.109:5000';
 const insert_url = flask_url+'/insert';
 const delete_url = flask_url+'/delete';
 const fetch_url = flask_url+'/fetch';

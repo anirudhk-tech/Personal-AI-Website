@@ -14,7 +14,7 @@ export const Chat = () => {
     const initDialog = {
         chat_type: 'bot',
         convo_id: uuid,
-        content: "Hey! I'm Cortex. I am an AI specifically designed to answer questions on Anirudh. It is important to mention that I'm purely experimental and sometimes I may be wrong. Double-check important information either online or with Anirudh himself. For the best use of your time and good responses, try to be specific on what you'd like to know. Ex. 'What is Anirudh's professional background?' instead of 'What is Anirudh's background?'. What would you like to know?"
+        content: "Hey! I'm Cortex. I am an AI specifically designed to answer questions on Anirudh. It is important to mention that I'm purely experimental and sometimes I may be wrong. Double-check important information either online or with Anirudh himself. What would you like to know?"
     };
     const [chatMsgs, setChatMsgs] = useState([]);
 
@@ -81,7 +81,7 @@ export const Chat = () => {
                 fontSize: '3vh',
                 opacity: typing ? 1.0 : 0.0,
             }}
-            >{"typing..."}</Typography>
+            >typing...</Typography>
             
             <Box
             ref={chatBoxRef}

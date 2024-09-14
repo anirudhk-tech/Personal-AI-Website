@@ -12,9 +12,8 @@ export const HeaderComponent = () => {
         elevation={0}
         sx={{
             bgcolor: 'background',
-            height: '10%',
+            height: {xs: '5%', sm: '14%'},
             alignItems: 'flex-end',
-            display: 'flex',
             padding: '2%',
         }}
         >
@@ -22,7 +21,7 @@ export const HeaderComponent = () => {
             sx={{
                 fontFamily: '"Great Vibes", cursive',
                 fontSize: '3vw',
-                color: 'primary.main'
+                color: 'primary.main',
             }}>Anirudh Kuppili</Typography>
         </AppBar>
     );
