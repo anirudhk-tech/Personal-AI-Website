@@ -5,12 +5,12 @@ Author: Anirudh Kuppili
 """
 
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from ai_bot.dataset import *
 
 transformer_modelPath = "sentence-transformers/all-MiniLM-l6-v2" # Defining information about transformer model for embedding
 model_kwargs={'device': 'cpu'}
-encode_kwargs = {'normalize_embeddings': False}
+encode_kwargs = {'normalize_embeddings': True}
 
 embeddings = HuggingFaceEmbeddings( # Creating embedding object for embedding
     model_name=transformer_modelPath,
