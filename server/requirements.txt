@@ -8,4 +8,5 @@ supabase==2.7.4
 transformers==4.44.2
 gunicorn==23.0.0
 google-generativeai==0.8.1
+sentence-transformers==3.0.1
 
