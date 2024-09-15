@@ -1,8 +1,8 @@
-﻿"""
+﻿'''
 File that converts the plain text into data that can be fed into the FAISS index
 Date Last Edited: 7 September 2024
 Author: Anirudh Kuppili
-"""
+'''
 
 from langchain.schema import Document
 from transformers import pipeline
