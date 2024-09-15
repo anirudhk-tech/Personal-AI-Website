@@ -8,7 +8,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from ai_bot.dataset import *
 
-transformer_modelPath = "sentence-transformers/all-MiniLM-l6-v2" # Defining information about transformer model for embedding
+transformer_modelPath = "sentence-transformers/paraphrase-TinyBERT-L6-v2" # Defining information about transformer model for embedding
 model_kwargs={'device': 'cpu'}
 encode_kwargs = {'normalize_embeddings': True}
 
