@@ -8,6 +8,10 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from database.database import insert_convo, delete_convo, get_convo, sort_chats
 from ai_bot.gemini import ask_ai
+from dotenv import load_dotenv, dotenv_values
+import os
+
+load_dotenv()
 
 server = Flask(__name__)
 CORS(server, resources={r"/*": {"origins": "*"}})
@@ -48,4 +52,4 @@ def ask ():
     return jsonify(response)
 
 if __name__ == '__main__':
-    server.run(host='0.0.0.0', port=10000)
+    server.run(host='0.0.0.0', port=os.getenv("PORT"))
