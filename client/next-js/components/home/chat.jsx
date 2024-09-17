@@ -29,7 +29,7 @@ export const Chat = () => {
         const data = {
             uuid: uuid.uuid,
           };
-        
+         setChatMsgs([serverDownDialog]); // Temporary
         const chat = await fetch_chat(data);
         setChatMsgs([serverDownDialog]); // Checking if chat exists (It doesn't on start up)
     };
