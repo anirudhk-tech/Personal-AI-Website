@@ -24,14 +24,20 @@ def batching (data, batch_size): # Function to batch documents for efficient mem
     for x in range(0, len(data), batch_size):
         yield data[x: x + batch_size]
 
+
 def search_faiss (query): # Search function that fetches relevant context
     finder = db.as_retriever(search_kwargs={"k": 5}) # Initializing retriever
     searchResult = finder.get_relevant_documents(query)
+    del finder # Deleting finder to free up memory
     return [searchResult[x].metadata["response"] for x in range(5)] # Returning top 5 results
+    
 
 for batch in batching(processed_data, batch_size):
     if not db:
         db = FAISS.from_documents(batch, embeddings) # Create index if not created yet
+        del batch # Deleting batch to free up memory
     else:
         db.add_documents(batch) # Add documents once index is created
-  
+
+del embeddings  # Deleting embeddings object to free up memory
+del processed_data # Deleting documents to free up memory

@@ -19,6 +19,7 @@ with open(unprocessed_data, 'r', errors='ignore') as file: # Reading dataset
     content = file.read()
 
 qa_key = content.split('//') # // represents a new Q&A set in the data text
+del content # Deleting content to free up space
 
 for qa in qa_key: 
     try: 
@@ -29,10 +30,15 @@ for qa in qa_key:
     Qs, A = qa.split('**')[0], qa.split('**')[1] # Assigning question and answer to variables
     questions = Qs.split('<end>') # <end> represents the end of a question in the questions set
     answer = A[:-6].replace('â€™', "'") # Formatting the answer properly
+
+    del Qs # Deleting question answer sets to free up memory
+    del A
     
     answer_list = answer.split('*') # * represents a new line in the data text
     new_sentences = [capitalize_first(sentence.strip()) for sentence in answer_list] # Captilizing and formatting answer
     answer = '*'.join(new_sentences).replace('*', '\n\n')
+
+    del new_sentences # Deleting placeholder to free up memory
 
     data_instance = Document( # Creating document instance to feed to the QA algorithm
         page_content=str([str(q).lower().strip().replace("â€™", "'") for q in questions if str(q).strip() != '']), # Feeding algorithm possible questions
@@ -42,3 +48,7 @@ for qa in qa_key:
     )    
 
     processed_data.append(data_instance) # Adding instance to dataset
+
+    del data_instance # Deleting instances to free up memory
+    del answer
+    del questions

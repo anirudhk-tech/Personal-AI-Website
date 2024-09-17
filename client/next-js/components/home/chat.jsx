@@ -16,6 +16,7 @@ export const Chat = () => {
         convo_id: uuid,
         content: "Hey! I'm Cortex. I am an AI specifically designed to answer questions on Anirudh. It is important to mention that I'm purely experimental and sometimes I may be wrong. Double-check important information either online or with Anirudh himself. What would you like to know?"
     };
+
     const [chatMsgs, setChatMsgs] = useState([]);
 
     const fetch_messages = async () => {
@@ -29,7 +30,12 @@ export const Chat = () => {
 
     useEffect(() => {
         setTimeout(() => { // Timeout to render user message on screen
-            fetch_messages();
+            fetch_messages()
+            .then(setTyping(true))
+            .then(setTimeout(() => {
+                    fetch_messages();
+                }, 4000) // Timeout for bot response to render
+            );
         }, 500);
 
         if (chatBoxRef.current) { // Auto scroll to bottom when entering text
@@ -42,9 +48,6 @@ export const Chat = () => {
             setTyping(true); // Indicating that the bot is typing
         }, 1100);
 
-        setTimeout(() => {  // Timeout to render AI message on screen
-            fetch_messages();
-        }, 4000);
 
         if (chatBoxRef.current) {  // Auto scroll to bottom when AI responds
             setTimeout(() => {

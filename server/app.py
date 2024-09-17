@@ -6,7 +6,7 @@ Author: Anirudh Kuppili
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-from database.database import insert_convo, delete_convo, get_convo, sort_chats
+from database.database import insert_convo, delete_convo, get_convo
 from ai_bot.gemini import ask_ai
 from dotenv import load_dotenv, dotenv_values
 import os
@@ -35,7 +35,7 @@ def fetch():
     data = request.json
     response = get_convo(data['uuid'])
 
-    return { 'messages': sorted(response.data, key=sort_chats) } # Sorting response so least recent comes first
+    return { 'messages': sorted(response.data, key=lambda chat: chat['created_at']) } # Sorting response so least recent comes first
 
 @app.route('/ask', methods=['POST'])
 def ask ():
