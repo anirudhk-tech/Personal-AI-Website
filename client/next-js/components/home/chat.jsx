@@ -31,7 +31,7 @@ export const Chat = () => {
           };
         
         const chat = await fetch_chat(data);
-        setChatMsgs(chat ? [initDialog, ...chat.messages] : [serverDownDialog]); // Checking if chat exists (It doesn't on start up)
+        setChatMsgs([serverDownDialog]); // Checking if chat exists (It doesn't on start up)
     };
 
     useEffect(() => {
