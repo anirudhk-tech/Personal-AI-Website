@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
         {/* Google fonts */}
           <link
             href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
