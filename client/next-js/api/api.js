@@ -4,7 +4,7 @@ Date Last Edited: 7 September 2024
 Author: Anirudh Kuppili
 */
 
-const flask_url = 'http://127.0.0.1:10000'//'https://personal-ai-server.uc.r.appspot.com';
+const flask_url = 'http://24.1.146.224:8000'//'https://personal-ai-server.uc.r.appspot.com';
 const insert_url = flask_url+'/insert';
 const delete_url = flask_url+'/delete';
 const fetch_url = flask_url+'/fetch';
