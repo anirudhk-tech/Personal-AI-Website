@@ -33,7 +33,7 @@ export const Chat = () => {
             .then(setTyping(true))
             .then(setTimeout(() => {
                     fetch_messages();
-                }, 4000) // Timeout for bot response to render
+                }, 5000) // Timeout for bot response to render
             );
         }, 500);
 
@@ -52,7 +52,7 @@ export const Chat = () => {
             setTimeout(() => {
                 chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
                 setTyping(false); // Making "typing..." disappear once response is visible
-            }, 5000);
+            }, 7000);
         };
 
     }, [msgSent]);
