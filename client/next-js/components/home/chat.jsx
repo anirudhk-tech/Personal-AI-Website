@@ -40,7 +40,7 @@ export const Chat = () => {
                 setTimeout(() => {
                     chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight
                     setTyping(true); // Signal that AI is processing message
-                }, 500);
+                }, 1000);
             };
 
             if (chatBoxRef.current) {  // Auto scroll to bottom when AI responds
@@ -50,7 +50,6 @@ export const Chat = () => {
                 }, 7000);
             };
         }, 500);
-
     }, [msgSent]);
 
     return (
