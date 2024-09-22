@@ -35,17 +35,17 @@ export const Chat = () => {
                     fetch_messages();
                 }, 4000) // Timeout for bot response to render
             );
-        }, 1000);
+        }, 500);
 
         if (chatBoxRef.current) { // Auto scroll to bottom when entering text
             setTimeout(() => {
                 chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight
-            }, 1300);
+            }, 1000);
         };
 
         setTimeout(() => {
             setTyping(true); // Indicating that the bot is typing
-        }, 1500);
+        }, 1000);
 
 
         if (chatBoxRef.current) {  // Auto scroll to bottom when AI responds
