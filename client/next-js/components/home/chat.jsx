@@ -17,21 +17,14 @@ export const Chat = () => {
         content: "Hey! I'm Cortex. I am an AI specifically designed to answer questions on Anirudh. It is important to mention that I'm purely experimental and sometimes I may be wrong. Double-check important information either online or with Anirudh himself. What would you like to know?"
     };
 
-    const serverDownDialog = {
-        chat_type: 'bot',
-        convo_id: uuid,
-        content: "Sorry! My server seems to be down right now. I'm locally hosted on Anirudh's computer, so I'm sure he's rushing to fix me. Please check back later.",
-    };
-
     const [chatMsgs, setChatMsgs] = useState([]);
 
     const fetch_messages = async () => {
         const data = {
             uuid: uuid.uuid,
           };
-         setChatMsgs([serverDownDialog]); // Temporary
         const chat = await fetch_chat(data);
-        setChatMsgs(chat ? [initDialog, ...chat.messages] : [serverDownDialog]); // Checking if chat exists (It doesn't on start up)
+        setChatMsgs(chat ? [initDialog, ...chat.messages] : [chatMsgs]); // Checking if chat exists (It doesn't on start up)
     };
 
     useEffect(() => {
@@ -47,7 +40,7 @@ export const Chat = () => {
         if (chatBoxRef.current) { // Auto scroll to bottom when entering text
             setTimeout(() => {
                 chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight
-            }, 1000);
+            }, 2000);
         };
 
         setTimeout(() => {
