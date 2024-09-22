@@ -35,7 +35,7 @@ export const Chat = () => {
                     fetch_messages();
                 }, 4000) // Timeout for bot response to render
             );
-        }, 500);
+        }, 1000);
 
         if (chatBoxRef.current) { // Auto scroll to bottom when entering text
             setTimeout(() => {
