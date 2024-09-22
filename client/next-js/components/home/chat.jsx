@@ -35,25 +35,21 @@ export const Chat = () => {
                     fetch_messages();
                 }, 5000) // Timeout for bot response to render
             );
+
+            if (chatBoxRef.current) { // Auto scroll to bottom when entering text
+                setTimeout(() => {
+                    chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight
+                    setTyping(true); // Signal that AI is processing message
+                }, 500);
+            };
+
+            if (chatBoxRef.current) {  // Auto scroll to bottom when AI responds
+                setTimeout(() => {
+                    chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+                    setTyping(false); // Making "typing..." disappear once response is visible
+                }, 7000);
+            };
         }, 500);
-
-        if (chatBoxRef.current) { // Auto scroll to bottom when entering text
-            setTimeout(() => {
-                chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight
-            }, 2000);
-        };
-
-        setTimeout(() => {
-            setTyping(true); // Indicating that the bot is typing
-        }, 2000);
-
-
-        if (chatBoxRef.current) {  // Auto scroll to bottom when AI responds
-            setTimeout(() => {
-                chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
-                setTyping(false); // Making "typing..." disappear once response is visible
-            }, 7000);
-        };
 
     }, [msgSent]);
 
