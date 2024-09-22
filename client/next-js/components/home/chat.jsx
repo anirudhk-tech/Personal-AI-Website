@@ -40,7 +40,7 @@ export const Chat = () => {
         if (chatBoxRef.current) { // Auto scroll to bottom when entering text
             setTimeout(() => {
                 chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight
-            }, 2000);
+            }, 1000);
         };
 
         setTimeout(() => {
@@ -52,7 +52,7 @@ export const Chat = () => {
             setTimeout(() => {
                 chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
                 setTyping(false); // Making "typing..." disappear once response is visible
-            }, 5000);
+            }, 6000);
         };
 
     }, [msgSent]);
