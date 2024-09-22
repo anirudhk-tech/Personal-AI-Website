@@ -40,12 +40,12 @@ export const Chat = () => {
         if (chatBoxRef.current) { // Auto scroll to bottom when entering text
             setTimeout(() => {
                 chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight
-            }, 1000);
+            }, 1300);
         };
 
         setTimeout(() => {
             setTyping(true); // Indicating that the bot is typing
-        }, 1100);
+        }, 1500);
 
 
         if (chatBoxRef.current) {  // Auto scroll to bottom when AI responds
