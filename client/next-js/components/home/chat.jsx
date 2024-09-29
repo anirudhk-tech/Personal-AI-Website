@@ -17,7 +17,13 @@ export const Chat = () => {
         content: "Hey! I'm Cortex. I am an AI specifically designed to answer questions on Anirudh. It is important to mention that I'm purely experimental and sometimes I may be wrong. Double-check important information either online or with Anirudh himself. What would you like to know?"
     };
 
-    const [chatMsgs, setChatMsgs] = useState([]);
+    const serverDownDialog = {
+        chat_type: 'bot',
+        convo_id: uuid,
+        content: "Sorry, it seems like the local device I run on is down right now! Feel free to explore other parts of the website while Anirudh works to fix me."
+    }
+
+    const [chatMsgs, setChatMsgs] = useState([initDialog]);
 
     const fetch_messages = async () => {
         const data = {
