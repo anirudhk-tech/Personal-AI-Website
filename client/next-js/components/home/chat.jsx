@@ -23,14 +23,14 @@ export const Chat = () => {
         content: "Sorry, it seems like the local device I run on is down right now! Feel free to explore other parts of the website while Anirudh works to fix me."
     }
 
-    const [chatMsgs, setChatMsgs] = useState([initDialog]);
+    const [chatMsgs, setChatMsgs] = useState([]);
 
     const fetch_messages = async () => {
         const data = {
             uuid: uuid.uuid,
           };
         const chat = await fetch_chat(data);
-        setChatMsgs(chat ? [initDialog, ...chat.messages] : [chatMsgs]); // Checking if chat exists (It doesn't on start up)
+        setChatMsgs(chat ? [initDialog, ...chat.messages] : [serverDownDialog]); // Checking if chat exists (It doesn't on start up)
     };
 
     useEffect(() => {
